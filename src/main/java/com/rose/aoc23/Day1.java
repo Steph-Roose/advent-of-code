@@ -2,23 +2,17 @@ package com.rose.aoc23;
 
 import com.rose.helpers.Readers;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-
-
-import static java.lang.Character.isDigit;
 
 /*
 * Part I
-* 1. Find the first digit
-* 2. Find the second digit
-* 3. Combine the digits to form a single two-digit number
-* 4. Get the sum of all calibration values
+* 1. Remove all letters
+* 2. Find the first digit
+* 3. Find the second digit
+* 4. Combine the digits to form a single two-digit number
+* 5. Get the sum of all calibration values
 *
 * Part II
 * 1. Find the written digits
@@ -41,8 +35,6 @@ public class Day1 {
         input.stream().map(Day1::replaceWrittenDigit).map(Day1::getTwoDigitNumber).toList().forEach(Day1::getSumValuesPt2);
         System.out.println(sumValuesPt2);
     }
-
-
 
     public static String getTwoDigitNumber(String value) {
         char[] charArray = removeLetters(value).toCharArray();
